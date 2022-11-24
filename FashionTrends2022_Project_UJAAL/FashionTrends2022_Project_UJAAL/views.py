@@ -25,6 +25,23 @@ def present():
         year=datetime.now().year,
     )
 
+@app.route('/past')
+def past():
+    """Renders the home page."""
+    return render_template(
+        'past.html',
+        title='Past Page',
+        year=datetime.now().year,
+    )
+
+@app.route('/future')
+def future():
+    """Renders the home page."""
+    return render_template(
+        'future.html',
+        title='Future Page',
+        year=datetime.now().year,
+    )
 @app.route('/contact')
 def contact():
     """Renders the contact page."""
