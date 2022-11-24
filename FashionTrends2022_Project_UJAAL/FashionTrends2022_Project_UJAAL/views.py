@@ -16,6 +16,15 @@ def home():
         year=datetime.now().year,
     )
 
+@app.route('/present')
+def present():
+    """Renders the home page."""
+    return render_template(
+        'present.html',
+        title='Present Page',
+        year=datetime.now().year,
+    )
+
 @app.route('/contact')
 def contact():
     """Renders the contact page."""
