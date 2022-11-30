@@ -3,10 +3,35 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Application</title>
+    <title>{{ title }} - Fashion Trend</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['geochart'],
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Popularity'],
+                ['Germany', 200],
+                ['United States', 300],
+                ['Brazil', 400],
+                ['Canada', 500],
+                ['France', 600],
+                ['RU', 700]
+            ]);
+
+            var options = {};
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 
 <body>
@@ -18,13 +43,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                <a href="/home" class="navbar-brand">Fashion Trend</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('present') }}">Present Analysis</a></li>
+                    <li><a href="{{ url_for('past') }}">Past Analysis</a></li>
+                    <li><a href="{{ url_for('future') }}">Future Analysis</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</</a></li>
                 </ul>
             </div>
         </div>
