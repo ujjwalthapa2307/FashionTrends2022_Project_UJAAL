@@ -1,6 +1,8 @@
 """
 Routes and views for the flask application.
 """
+from ast import IsNot
+from asyncio.windows_events import NULL
 from datetime import datetime        
 from flask import Flask,session,render_template,request,redirect,url_for,flash
 import pyodbc  
@@ -9,6 +11,27 @@ from FashionTrends2022_Project_UJAAL import app
 app.secret_key='asdsdfsdfs13sdf_df%&'
 # creating connection Object which will contain SQL Server Connection    
 connection = pyodbc.connect('Driver={SQL Server};Server=.;Database=Fashion_Trends_2022;uid=sa;pwd=Test@1234')# Creating Cursor    
+
+@app.route('/register',methods=["GET","POST"])
+def register():
+    if request.method=="POST":
+        name=request.form.get("name")
+        email=request.form.get("email")
+        password=request.form.get("password")
+        #secure_password=sha256_crypt.encrypt(str(password))
+
+        if password == "":
+            flash("password did not match","danger")
+            return redirect(url_for('register'))
+
+        else:
+            connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
+            connection.commit()
+            flash("registration succesfull","success")
+            return redirect(url_for('login'))
+    
+    else:
+        return render_template('register.html')
 
 @app.route('/login',methods=['GET','POST'])
 def login():

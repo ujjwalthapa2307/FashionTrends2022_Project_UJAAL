@@ -50,6 +50,7 @@
     <Content Include="FashionTrends2022_Project_UJAAL\templates\login_home.html" />
     <Content Include="FashionTrends2022_Project_UJAAL\templates\past.html" />
     <Content Include="FashionTrends2022_Project_UJAAL\templates\present.html" />
+    <Content Include="FashionTrends2022_Project_UJAAL\templates\register.html" />
     <Content Include="requirements.txt" />
     <Content Include="FashionTrends2022_Project_UJAAL\static\content\bootstrap.css" />
     <Content Include="FashionTrends2022_Project_UJAAL\static\content\bootstrap.min.css" />
