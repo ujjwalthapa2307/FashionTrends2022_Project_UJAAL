@@ -17,7 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>FashionTrends2022_Project_UJAAL</Name>
     <RootNamespace>FashionTrends2022_Project_UJAAL</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env3|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,11 +37,17 @@
     <Folder Include="FashionTrends2022_Project_UJAAL\static\" />
     <Folder Include="FashionTrends2022_Project_UJAAL\static\content\" />
     <Folder Include="FashionTrends2022_Project_UJAAL\static\fonts\" />
+    <Folder Include="FashionTrends2022_Project_UJAAL\static\images\" />
     <Folder Include="FashionTrends2022_Project_UJAAL\static\scripts\" />
     <Folder Include="FashionTrends2022_Project_UJAAL\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FashionTrends2022_Project_UJAAL\static\images\lower.jpg" />
+    <Content Include="FashionTrends2022_Project_UJAAL\static\images\present-shoe.jpg" />
+    <Content Include="FashionTrends2022_Project_UJAAL\static\images\top.jpg" />
     <Content Include="FashionTrends2022_Project_UJAAL\templates\future.html" />
+    <Content Include="FashionTrends2022_Project_UJAAL\templates\login.html" />
+    <Content Include="FashionTrends2022_Project_UJAAL\templates\login_home.html" />
     <Content Include="FashionTrends2022_Project_UJAAL\templates\past.html" />
     <Content Include="FashionTrends2022_Project_UJAAL\templates\present.html" />
     <Content Include="requirements.txt" />
@@ -73,6 +79,24 @@
     <Content Include="FashionTrends2022_Project_UJAAL\templates\layout.html" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env2\">
+      <Id>env2</Id>
+      <Version>3.10</Version>
+      <Description>env2 (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="env3\">
+      <Id>env3</Id>
+      <Version>3.10</Version>
+      <Description>env3 (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.9</Version>
