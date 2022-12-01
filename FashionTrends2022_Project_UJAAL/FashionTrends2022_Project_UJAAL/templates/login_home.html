@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>How to login logout with flask</title>
+    <title>login logout Page</title>
+    <style>
+        a:link {
+            text-decoration: none;
+            font-size:26px;
+        }
+
+        a:visited {
+            text-decoration: none;
+            font-size: 36px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:active {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Fashion Trends Login Page </h1>
@@ -15,6 +34,8 @@
     Please login here {{ session['username'] }} <br />
     <a href={{ url_for('login') }}>login</a>
     {%endif %}
+    <br>
+    <br>
     <a href={{ url_for('register') }}>Sign Up</a>
 
 </body>
