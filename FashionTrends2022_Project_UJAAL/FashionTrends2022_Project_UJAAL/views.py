@@ -21,13 +21,13 @@ def register():
         #secure_password=sha256_crypt.encrypt(str(password))
 
         if password == "":
-            flash("password did not match","danger")
+            get_flashed_message("password did not match","danger")
             return redirect(url_for('register'))
 
         else:
             connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
             connection.commit()
-            flash("registration succesfull","success")
+            get_flashed_message("registration succesfull","success")
             return redirect(url_for('login'))
     
     else:
@@ -39,6 +39,7 @@ def login():
         username = request.form['username']
         password = request.form['password']  
         res = connection.execute("SELECT * FROM User_login WHERE Email ='"+username+"'"+"AND Password ='"+ password+"'").fetchone()
+        country_sales = connection.execute("Select t.Name, t.Sales, b.Brand_Name from Territory as t join BRAND as b on  t.Brand_Id = b.BRAND_ID").fetchall()
         if res is None:
             flash("no email found","danger")
             return render_template('login.html')
