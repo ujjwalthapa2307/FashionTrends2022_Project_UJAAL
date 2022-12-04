@@ -5,115 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> login Page </title>
-    <style>
-        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-        header .header {
-            background-color: #fff;
-            height: 45px;
-        }
+    <!--CSS files references-->
+    <link href="../static/content/font.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/content/tooltipster.css" />
+    <link href="../static/content/pgwslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/content/font-awesome.min.css">
+    <link href="../static/content/style.css" rel="stylesheet" media="screen">
+    <link href="../static/content/responsive.css" rel="stylesheet" media="screen">
 
-        header a img {
-            width: 134px;
-            margin-top: 4px;
-        }
-
-        .login-page {
-            width: 360px;
-            padding: 8% 0 0;
-            margin: auto;
-        }
-
-            .login-page .form .login {
-                margin-top: -31px;
-                margin-bottom: 26px;
-            }
-
-        .form {
-            position: relative;
-            z-index: 1;
-            background: #FFFFFF;
-            max-width: 360px;
-            margin: 0 auto 100px;
-            padding: 45px;
-            text-align: center;
-            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-        }
-
-            .form input {
-                font-family: "Roboto", sans-serif;
-                outline: 0;
-                background: #f2f2f2;
-                width: 100%;
-                border: 0;
-                margin: 0 0 15px;
-                padding: 15px;
-                box-sizing: border-box;
-                font-size: 14px;
-            }
-
-            .form button {
-                font-family: "Roboto", sans-serif;
-                text-transform: uppercase;
-                outline: 0;
-                background-color: #328f8a;
-                background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-                width: 100%;
-                border: 0;
-                padding: 15px;
-                color: #FFFFFF;
-                font-size: 14px;
-                -webkit-transition: all 0.3 ease;
-                transition: all 0.3 ease;
-                cursor: pointer;
-            }
-
-            .form .message {
-                margin: 15px 0 0;
-                color: #b3b3b3;
-                font-size: 12px;
-            }
-
-                .form .message a {
-                    color: #4CAF50;
-                    text-decoration: none;
-                }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        body {
-            background-color: #328f8a;
-            background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-            font-family: "Roboto", sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
 </head>
 <body>
-    <h1>Login Page for Fashion Trend Analysis</h1>
-    <div class="" login-wrapper"">
-        <form method="POST" class="form">
-            <h2>Login</h2>
-            <div class="input-group">
-                <input type="text" name="username" id="loginUser" required />
-                <label for="loginUser">User Name</label>
+    <section id="header_area">
+        <div class="wrapper header">
+            <div class="clearfix header_top">
+                <div class="clearfix logo floatleft">
+                    <a href=""><h1><span>FASHION</span> SPY</h1></a>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="password"
-                       name="password"
-                       id="loginPassword"
-                       required />
-                <label for="loginPassword">Password</label>
+            <div class="header_bottom">
+                <nav>
+                    <ul id="nav">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Subscription</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us</a></li>
+                    </ul>
+                </nav>
             </div>
-            <input type="submit" />
-        </form>
-    </div>
+        </div>
+    </section>
 
+    <section id="content_area">
+        <div class="clearfix wrapper main_content_area">
+            <div class="clearfix main_content floatleft">
+                <div class="clearfix content">
+                    <div class="content_title"><h2>Kindly enter your Login details</h2></div>
+
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <div class="clearfix sidebar_container floatright">
+                                    <div class="clearfix newsletter">
+                                        <form action="" method="POST">
+                                            <input type="email" name="username" placeholder="Email Address" id="mce-EMAIL" required />
+                                            <input type="password" name="password" placeholder="Password" id="mce-PASSWORD" required>
+                                            <input type="submit" value="LOGIN" id="mc-embedded-subscribe" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer_bottom_area">
+        <div class="clearfix wrapper footer_bottom">
+            <div class="clearfix copyright floatleft">
+                {% block content %}{% endblock %}
+                <p> Copyright &copy; {{ year }} - My Flask Application</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

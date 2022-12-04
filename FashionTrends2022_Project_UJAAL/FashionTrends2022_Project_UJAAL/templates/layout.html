@@ -4,37 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Fashion Trend</title>
+    
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
-    <script src="/static/scripts/modernizr-2.6.2.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['geochart'],
-        });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-
-        function drawRegionsMap() {
-            var data = google.visualization.arrayToDataTable([
-                ['Country', 'Popular Brand'],
-                ['Germany', 'Nike'],
-                ['United States', 'Addidas'],
-                ['Brazil', 'Gap'],
-                ['Canada', 'Puma'],
-                ['France', 'H & M'],
-                ['India', 'Zara'],
-                ['ru', 'Coach'],
-                ['Nigeria', 'Mango'],
-                ['Japan', 'Gym Shark']
-            ]);
-
-            var options = {};
-
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-            chart.draw(data, options);
-        }
-    </script>
 </head>
 
 <body>

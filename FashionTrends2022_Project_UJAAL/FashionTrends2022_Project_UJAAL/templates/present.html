@@ -4,75 +4,172 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Fashion Trend</title>
-    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
-    <script src="/static/scripts/modernizr-2.6.2.js"></script>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            background-color: #2196F3;
-            padding: 10px;
-        }
 
-        .grid-item {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            font-size: 30px;
-            text-align: center;
-        }
-    </style>
+    <!--CSS files references-->
+    <link href="../static/content/font.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/content/tooltipster.css" />
+    <link href="../static/content/pgwslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/content/font-awesome.min.css">
+    <link href="../static/content/style.css" rel="stylesheet" media="screen">
+    <link href="../static/content/responsive.css" rel="stylesheet" media="screen">
+
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/home" class="navbar-brand">Fashion Trend</a>
+    <section id="header_area">
+        <div class="wrapper header">
+            <div class="clearfix header_top">
+                <div class="clearfix logo floatleft">
+                    <a href=""><h1><span>FASHION</span> SPY</h1></a>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('present') }}">Present Analysis</a></li>
-                    <li><a href="{{ url_for('past') }}">Past Analysis</a></li>
-                    <li><a href="{{ url_for('future') }}">Future Analysis</a></li>
-                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                </ul>
+            <div class="header_bottom">
+                <nav>
+                    <ul id="nav">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Subscription</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us</a></li>
+                        <li><a href="{{ url_for('past') }}">Past Trend Analysis</a></li>
+                        <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
+    </section>
 
-    <h1>Present Trend Analysis</h1>
+    <section id="content_area">
+        <div class="clearfix wrapper">
+            <div class="clearfix floatleft">
+                <div class="clearfix content">
+                    <div class="content_title"><h2>Popular Apparels across countries</h2></div>
 
-    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <div class="item" id="apparel_div" style="width: 900px; height: 500px;"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix content">
+                    <div class="content_title"><h2>Popular Lowers across countries</h2></div>
 
-    <div class="grid-container">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item"><img src="./static/images/top.jpg" alt="" width="300" height="400"></div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item"><img src="./static/images/lower.jpg" alt="" width="300" height="400"></div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item"><img src="./static/images/present-shoe.jpg" alt="" width="300" height="400"></div>
-    </div>
-    <div class="container body-content">
-        {% block content %}{% endblock %}
-        <hr />
-        <footer>
-            <p>&copy; {{ year }} - My Flask Application</p>
-        </footer>
-    </div>
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <div class="item" id="lower_div" style="width: 900px; height: 500px;"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix content">
+                    <div class="content_title"><h2>Popular Footwears across countries</h2></div>
+
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <div class="item" id="footwear_div" style="width: 900px; height: 500px;"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer_bottom_area">
+        <div class="clearfix wrapper footer_bottom">
+            <div class="clearfix copyright floatleft">
+                {% block content %}{% endblock %}
+                <p> Copyright &copy; {{ year }} - My Flask Application</p>
+            </div>
+        </div>
+    </section>
 
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>
     <script src="/static/scripts/respond.js"></script>
-    {% block scripts %}{% endblock %}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart'],
+        });
+        google.charts.setOnLoadCallback(drawApparelMap);
+        google.charts.setOnLoadCallback(drawLowerMap);
+        google.charts.setOnLoadCallback(drawFootwearMap);
+
+        function drawApparelMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['Country','1010105', '1020404', '1040903', '1060403', '1100905'],
+                ['China', 11000, 5000, 2400, 6500, 1200],
+                ['India', 7000, 5400, 700, 4500, 15000],
+                ['Canada', 20000, 1600, 5000, 3400, 300],
+                ['Russia', 6000, 4800, 10000, 2900, 8000],
+                ['United States', 12000, 7000, 4000, 300, 2000],
+                ['Germany', 9000, 3000, 1200, 1500, 500]
+            ]);
+
+            var options = {
+                title: 'Sales (in millions dollars)',
+                isStacked: true,
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('apparel_div'));
+            chart.draw(data, options);
+        }
+
+        function drawLowerMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['Country', '1010105', '1020404', '1040903', '1060403', '1100905'],
+                ['China', 11000, 5000, 2400, 6500, 1200],
+                ['India', 7000, 5400, 700, 4500, 15000],
+                ['Canada', 20000, 1600, 5000, 3400, 300],
+                ['Russia', 6000, 4800, 10000, 2900, 8000],
+                ['United States', 12000, 7000, 4000, 300, 2000],
+                ['Germany', 9000, 3000, 1200, 1500, 500]
+            ]);
+
+            var options = {
+                title: 'Sales (in millions dollars)',
+                isStacked: 'percent',
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('lower_div'));
+            chart.draw(data, options);
+        }
+
+        function drawFootwearMap() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Brand');
+            data.addColumn('number', 'Sales');
+            data.addRows([
+                ['Nike - Canada', 45.0],
+                ['Puma - China', 26.8],
+                ['GAP - Germany', 12.8],
+                ['Adidas - United States', 8.5],
+                ['Guess - India', 6.2],
+                ['Mango - Russia', 0.7]
+            ]);
+
+            var options = {
+                'title': 'Most popular Brands by sales',
+                is3D: true
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('footwear_div'));
+            chart.draw(data, options);
+        }
+    </script>
 
 </body>
 </html>
