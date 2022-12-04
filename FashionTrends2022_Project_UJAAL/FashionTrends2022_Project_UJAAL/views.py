@@ -13,7 +13,7 @@ app.secret_key='asdsdfsdfs13sdf_df%&'
 # creating connection Object which will contain SQL Server Connection    
 #connection = pyodbc.connect('Driver={SQL Server};Server=.;Database=Fashion_Trends_2022;uid=sa;pwd=Test@1234')# Creating Cursor    
 DRIVER = 'SQL Server'
-SERVER_NAME = 'LOVELEEN\LKSQL'
+SERVER_NAME = 'Jinal\SQL2019'
 DATABASE_NAME = 'Fashion_Trends_2022'
 
 conn_string = f"""
@@ -32,41 +32,48 @@ except Exception as e:
 else:
     cursor = connection.cursor()
 
-# Registeration
-@app.route('/register',methods=["GET","POST"])
+# Registration
+@app.route('/register', methods=["GET","POST"])
 def register():
     if request.method=="POST":
         name=request.form.get("name")
         email=request.form.get("email")
         password=request.form.get("password")
         #secure_password=sha256_crypt.encrypt(str(password))
-
-        if password == "":
-            get_flashed_message("password did not match","danger")
+        try:
+            if password == "":
+                get_flashed_message("password did not match","danger")
+                return redirect(url_for('register'))
+            else:
+                try:
+                    connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
+                    connection.commit()                    
+                    return redirect(url_for('login'))
+                except:
+                    return redirect(url_for('register'))
+        except:
             return redirect(url_for('register'))
 
-        else:
-            connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
-            connection.commit()
-            #get_flashed_message("registration succesfull","success")
-            return redirect(url_for('login'))
-    
-    else:
-        return render_template('register.html')
+    return render_template('register.html')
+
+        
 
 # Login
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method=='POST':
         username = request.form['username']
-        password = request.form['password']  
-        res = connection.execute("SELECT * FROM User_login WHERE Email ='"+username+"'"+"AND Password ='"+ password+"'").fetchone()
-        
-        if res is None:
-            flash("no email found","danger")
+        password = request.form['password'] 
+
+        try:
+            res = connection.execute("SELECT * FROM User_login WHERE Email ='"+username+"'"+"AND Password ='"+ password+"'").fetchone()        
+            if res is None:
+                flash("no email found","danger")
+                return render_template('login.html')
+            else:
+                return render_template('present.html')
+        except:
             return render_template('login.html')
-        else:
-            return render_template('present.html')
 
         connection.close() 
     return render_template('login.html')
