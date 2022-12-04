@@ -4,13 +4,43 @@
 
 
 <style>
-    div.a {
+    div.map {
         grid-template-columns: auto auto;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
     }
 </style>
 
 <body>
-    <div class="a">
+    <h2> Top 14 Popular Brand According to Sales Number</h2>
+    <table>
+        <tr>
+            <th>Country Name</th>
+            <th>Country Sales Number </th>
+            <th>Country Popular brand</th>
+        </tr>
+        {%for row in country_sales %}
+        <tr>
+            {%for col in row%}
+            <td>{{col}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+    <div class="map">
         <div class="item" id="regions_div" style="width: 900px; height: 500px;"></div>
     </div>
 </body>

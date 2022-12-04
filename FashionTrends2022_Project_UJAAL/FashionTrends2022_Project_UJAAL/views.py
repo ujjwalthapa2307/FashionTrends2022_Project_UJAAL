@@ -39,7 +39,7 @@ def login():
         username = request.form['username']
         password = request.form['password']  
         res = connection.execute("SELECT * FROM User_login WHERE Email ='"+username+"'"+"AND Password ='"+ password+"'").fetchone()
-        country_sales = connection.execute("Select t.Name, t.Sales, b.Brand_Name from Territory as t join BRAND as b on  t.Brand_Id = b.BRAND_ID").fetchall()
+       
         if res is None:
             flash("no email found","danger")
             return render_template('login.html')
@@ -60,13 +60,17 @@ def index():
         login=True
     return render_template('login_home.html',login=login)
 
-@app.route('/home')
+@app.route('/home',methods=['GET','POST'])
 def home():
     """Renders the home page."""
+    country_sales = connection.execute("Select t.Name, t.Sales, b.Brand_Name from Territory as t join BRAND as b on  t.Brand_Id = b.BRAND_ID ORDER BY t.Sales DESC").fetchall()
+    country_name = [row[0] for row in country_sales]
+    country_sales_number = [row[1] for row in country_sales]
+    country_brand = [row[2] for row in country_sales]
     return render_template(
         'index.html',
         title='Home Page',
-        year=datetime.now().year,
+        year=datetime.now().year,country_name = country_name, country_sales_number = country_sales_number, country_brand = country_brand, country_sales = country_sales
     )
 
 @app.route('/present')
