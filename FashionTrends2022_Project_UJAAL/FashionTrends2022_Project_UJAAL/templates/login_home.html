@@ -26,9 +26,22 @@
                 <nav>
                     <ul id="nav">
                         <li><a href="">Home</a></li>
-                        <li><a href="">Subscription</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Contact us</a></li>
+                        <li><a href="{{ url_for('subscription') }}">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+                        {% if session['username'] %}
+                        <li><a href="{{ url_for('present') }}">Present Trend Analysis</a></li>
+                        <li><a href="{{ url_for('past') }}">Past Trend Analysis</a></li>
+                        <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li id="dropdown">
+                            <a href="">Current Trends</a>
+                            <ul>
+                                <li><a href="currenttrends?tshirts">T-shirts</a></li>
+                                <li><a href="currenttrends?dresses">Dresses</a></li>
+                                <!--<li><a href="currenttrends?footwear">Footwear</a></li>-->
+                            </ul>
+                        </li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>
@@ -39,7 +52,7 @@
         <div class="clearfix wrapper main_content_area">
             <div class="clearfix main_content floatleft">
                 <div class="clearfix content">
-                    <div class="content_title"><h2>Popular Brands across countries</h2></div>
+                    <div class="content_title"><h2>Popular Brands across countries by Gross Sales</h2></div>
 
                     <div class="clearfix single_content">
                         <div class="clearfix post_detail">
@@ -47,6 +60,23 @@
                                 <p>
                                     <div class="item" id="regions_div" style="width: 900px; height: 500px;"></div>
                                 </p>
+                                <p>
+                                    <table>
+                                        <tr>
+                                            <th>Country Name</th>
+                                            <th>Popular Brands</th>
+                                            <th>Brand Sales</th>
+                                        </tr>
+                                        {%for row in country_sales %}
+                                        <tr>
+                                            {%for col in row%}
+                                            <td>{{col}}</td>
+                                            {%endfor%}
+                                        </tr>
+                                        {%endfor%}
+                                    </table>
+                                </p>
+
                             </div>
                         </div>
                     </div>
@@ -55,17 +85,9 @@
             <div class="clearfix sidebar_container floatright">
                 <div class="clearfix newsletter">
                     <form>
-                        <h2>New Member?</h2>
-                        <div class="header_bottom">
-                            <nav>
-                                <ul id="nav">
-                                    <li><a href={{ url_for('register') }}>SIGN UP</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <br />
 
-                        {% if login %}
+
+                        {% if session['username'] %}
                         <h2>You are logged in as <strong>{{ session['username'] }}</strong></h2>
                         <div class="header_bottom">
                             <nav>
@@ -76,6 +98,15 @@
                         </div>
 
                         {%else%}
+                        <h2>New Member?</h2>
+                        <div class="header_bottom">
+                            <nav>
+                                <ul id="nav">
+                                    <li><a href={{ url_for('register') }}>SIGN UP</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <br />
                         <h2>Existing Member? {{ session['username'] }} </h2>
                         <div class="header_bottom">
                             <nav>

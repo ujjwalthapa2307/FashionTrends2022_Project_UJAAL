@@ -1,20 +1,135 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Page</title>
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
+    <!--CSS files references-->
+    <link href="../static/content/font.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/content/tooltipster.css" />
+    <link href="../static/content/pgwslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/content/font-awesome.min.css">
+    <link href="../static/content/style.css" rel="stylesheet" media="screen">
+    <link href="../static/content/responsive.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <section id="header_area">
+        <div class="wrapper header">
+            <div class="clearfix header_top">
+                <div class="clearfix logo floatleft">
+                    <a href=""><h1><span>FASHION</span> SPY</h1></a>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <nav>
+                    <ul id="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('subscription') }}">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="">Contact us</a></li>
+                        {% if session['username'] %}
+                        <li><a href="{{ url_for('present') }}">Present Trend Analysis</a></li>
+                        <li><a href="{{ url_for('past') }}">Past Trend Analysis</a></li>
+                        <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li id="dropdown">
+                            <a href="">Current Trends</a>
+                            <ul>
+                                <li><a href="currenttrends?tshirts">T-shirts</a></li>
+                                <li><a href="currenttrends?dresses">Dresses</a></li>
+                                <!--<li><a href="currenttrends?footwear">Footwear</a></li>-->
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    <section id="content_area">
+        <div class="clearfix wrapper">
+            <div class="clearfix floatleft">
+                <div class="clearfix content">
+                    <div class="content_title"><h2>TEAM</h2></div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <table>
+                                        <tr>
+                                            <td><img src=../static/images/Aana.jpg alt="Smiley face" style="vertical-align:middle"></td>
+                                            <td>
+                                                <b>AANAL THAKKAR</b><br /><br />
+                                                System Architect<br />
+                                                athakkar0545@conestogac.on.ca
+                                            </td>
+                                            <td><img src=../static/images/Abhay.jpg alt="Smiley face" style="vertical-align:middle"></td>
+                                            <td>
+                                                <b>ABHAYSINH SOLANKI</b><br /><br />
+                                                Programming Lead<br />
+                                                asolanki4050@conestogac.on.ca
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src=../static/images/Jinal.jpg alt="Smiley face" style="vertical-align:middle"></td>
+                                            <td>
+                                                <b>JINAL DOSHI</b><br /><br />
+                                                Database Administrator<br />
+                                                jdoshi1269@conestogac.on.ca
+                                            </td>
+                                            <td><img src=../static/images/Lovie.jpg alt="Smiley face" style="vertical-align:middle"></td>
+                                            <td>
+                                                <b>LOVELEEN KAUR</b><br /><br />
+                                                Project Manager & Infrastructure Lead<br />
+                                                loveleenkaur0751@conestogac.on.ca
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src=../static/images/Ujjwal.jpg alt="Smiley face" style="vertical-align:middle"></td>
+                                            <td>
+                                                <b>UJJWAL THAPA</b><br /><br />
+                                                QA Lead<br />
+                                                uthapamagar6208@conestogac.on.ca
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-{% endblock %}
+    <section id="footer_bottom_area">
+        <div class="clearfix wrapper footer_bottom">
+            <div class="clearfix copyright floatleft">
+                {% block content %}{% endblock %}
+                <p> Copyright &copy; {{ year }} - My Flask Application</p>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../static/scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/jquery.tooltipster.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.tooltip').tooltipster();
+        });
+    </script>
+
+    <script type="text/javascript" src="../static/scripts/selectnav.min.js"></script>
+    <script type="text/javascript">
+        selectnav('nav', {
+            label: '-Navigation-',
+            nested: true,
+            indent: '-'
+        });
+    </script>
+</body>
+</html>

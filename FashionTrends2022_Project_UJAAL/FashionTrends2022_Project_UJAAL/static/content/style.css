@@ -7,11 +7,26 @@ a:hover{text-decoration:none}
 input[type=text],input[type=password],input[type=submit],textarea{border:1px solid #ddd;padding:5px;outline:0;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;margin:0 0 15px;font-family: 'Oswald', sans-serif;}
 h2 {font-size:25px;line-height:30px}
-img{max-width:100%;height:auto;border:none}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+/*img{max-width:100%;height:auto;border:none}*/
 
 .alignleft{float:left;margin-right:10px}	
 .aligncenter{display:block;margin:10px auto}	
-.alignright{float:right;margin-left:10px}	
+.alignright{float:right;margin-left:10px}
 
 .floatleft{float:left}
 .floatright{float:right}

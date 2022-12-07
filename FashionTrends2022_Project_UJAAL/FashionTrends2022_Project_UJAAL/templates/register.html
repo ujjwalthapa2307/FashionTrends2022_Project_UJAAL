@@ -27,10 +27,10 @@
             <div class="header_bottom">
                 <nav>
                     <ul id="nav">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Subscription</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Contact us</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('subscription') }}">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -49,10 +49,10 @@
                                 <div class="clearfix sidebar_container floatright">
                                     <div class="clearfix newsletter">
                                         <form action="" method="POST">
-                                            <input type="text" name="name" placeholder="User Name" id="mce-TEXT" />
-                                            <input type="email" name="email" placeholder="Email Address" id="mce-EMAIL" />
-                                            <input type="password" name="password" placeholder="Password" id="mce-PASSWORD">
-                                            <input type="password" name="confirm_password" placeholder="Confirm Password" id="mce-PASSWORD">
+                                            <input type="text" name="name" placeholder="User Name" id="mce-TEXT" required />
+                                            <input type="email" name="email" placeholder="Email Address" id="mce-EMAIL" required />
+                                            <input type="password" name="password" placeholder="Password" id="mce-PASSWORD" required>
+                                            <input type="password" name="confirm_password" placeholder="Confirm Password" id="mce-PASSWORD" required>
                                             <input type="submit" value="REGISTER" id="mc-embedded-subscribe" />
                                         </form>
                                     </div>

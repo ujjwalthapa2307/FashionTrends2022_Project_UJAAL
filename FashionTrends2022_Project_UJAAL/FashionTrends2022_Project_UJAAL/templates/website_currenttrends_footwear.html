@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Current Trends</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS files references-->
+    <link href="../static/content/font.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/content/tooltipster.css" />
+    <link href="../static/content/pgwslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/content/font-awesome.min.css">
+    <link href="../static/content/style.css" rel="stylesheet" media="screen">
+    <link href="../static/content/responsive.css" rel="stylesheet" media="screen">
+
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+    <section id="header_area">
+        <div class="wrapper header">
+            <div class="clearfix header_top">
+                <div class="clearfix logo floatleft">
+                    <a href=""><h1><span>FASHION</span> SPY</h1></a>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <nav>
+                    <ul id="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('subscription') }}">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+                        <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li id="dropdown">
+                            <a href="">Current Trends</a>
+                            <ul>
+                                <li><a href="currenttrends?tshirts">T-shirts</a></li>
+                                <li><a href="currenttrends?dresses">Dresses</a></li>
+                                <!--<li><a href="currenttrends?footwear">Footwear</a></li>-->
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section id="content_area">
+        <div class="clearfix wrapper">
+            <div class="clearfix floatleft">
+                <div class="clearfix content">
+                    <div class="content_title" style="width:1600px;padding-left:25%"><h2>CURRENT TRENDS LEADERBOARD</h2></div>
+
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/1.jpg" alt="FOOTWEARTREND1" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #1</h2>
+                                        <p class="title">{{ top1_name[0] }}</p>
+                                        <a href={{ top1_description[0] }}>Link</a>
+                                        <p> Score: {{ top1_score[0] }} </p>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/2.jpg" alt="TOPTREND2" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #2</h2>
+                                        <p class="title">{{ top1_name[1] }}</p>
+                                        <a href={{ top1_description[1] }}>Link</a>
+                                        <p> Score: {{ top1_score[1] }} </p>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/3.jpg" alt="TOPTREND3" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #3</h2>
+                                        <p class="title">{{ top1_name[2] }}</p>
+                                        <a href={{ top1_description[2] }}>Link</a>
+                                        <p> Score: {{ top1_score[2] }} </p>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/4.jpg" alt="TOPTREND4" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #4</h2>
+                                        <p class="title">{{ top1_name[3] }}</p>
+                                        <a href={{ top1_description[3] }}>Link</a>
+                                        <p> Score: {{ top1_score[3] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/5.jpg" alt="TOPTREND5" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #5</h2>
+                                        <p class="title">{{ top1_name[4] }}</p>
+                                        <a href={{ top1_description[4] }}>Link</a>
+                                        <p> Score: {{ top1_score[4] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/6.jpg" alt="BOTTOMTREND1" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #6</h2>
+                                        <p class="title">{{ bottom1_name[0] }}</p>
+                                        <a href={{ bottom1_description[0] }}>Link</a>
+                                        <p> Score: {{ bottom1_score[0] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/7.jpg" alt="BOTTOMTREND2" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #7</h2>
+                                        <p class="title">{{ bottom1_name[1] }}</p>
+                                        <a href={{ bottom1_description[1] }}>Link</a>
+                                        <p> Score: {{ bottom1_score[1] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/8.jpg" alt="BOTTOMTREND3" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #8</h2>
+                                        <p class="title">{{ bottom1_name[2] }}</p>
+                                        <a href={{ bottom1_description[2] }}>Link</a>
+                                        <p> Score: {{ bottom1_score[2] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/9.jpg" alt="BOTTOMTREND4" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #9</h2>
+                                        <p class="title">{{ bottom1_name[3] }}</p>
+                                        <a href={{ bottom1_description[3] }}>Link</a>
+                                        <p> Score: {{ bottom1_score[3] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                            <div class="clearfix post_excerpt">
+                                <p>
+                                    <img src="../static/images/footwear_images/10.jpg" alt="BOTTOMTREND5" class="centerimg">
+                                    <div class="container">
+                                        <h2>FOOTWEAR TREND #10</h2>
+                                        <p class="title">{{ bottom1_name[4] }}</p>
+                                        <a href={{ bottom1_description[4] }}>Link</a>
+                                        <p> Score: {{ bottom1_score[4] }} </p>
+                                    </div><br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content_area">
+        <div class="clearfix wrapper">
+            <div class="clearfix floatleft">
+                <div class="clearfix content">
+                    <div class="content_title" style="width:1600px;padding-left:25%"><h2>CURRENT TRENDS: FEATURES</h2></div>
+
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <div class="maingraph" id="graphDiv" style="align:center;">
+                                    <p>Click on the name/bar to see its details.</p>
+                                    <p>Click anywhere inside the box to return to the previous graph.</p>
+                                    <p>This bar graph represents the top 5 and bottom 5 bigrams along with their rating range.</p>
+                                    <br>
+                                </div>
+                                <div class="main" id="graphDiv1">
+                                    <div class="row" style="align:center">
+                                        <div class="columngraph">
+                                            <div class="card">
+                                                <div class="maingraph" id="graphDiv" style="align:center;"></div><br>
+                                            </div>
+                                        </div>
+                                    </div><br /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer_bottom_area">
+        <div class="clearfix wrapper footer_bottom">
+            <div class="clearfix copyright floatleft">
+                {% block content %}{% endblock %}
+                <p> Copyright &copy; {{ year }} - My Flask Application</p>
+            </div>
+        </div>
+    </section>
+
+    <script>(function svg1() {
+            var margin = { top: 20, right: 40, bottom: 0, left: 200 },
+                width = 900 - margin.left - margin.right,
+                height = 390 - margin.top - margin.bottom;
+
+            var x = d3.scale.linear()
+                .range([0, width]);
+
+
+            var barHeight = 20;
+
+            var color = d3.scale.ordinal()
+                .range(["#5b9797", "#a2c7c7"]);
+
+            var duration = 200,
+                delay = 80;
+
+            var partition = d3.layout.partition()
+                .value(function (d) { return d.size; });
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("top");
+            //kbn
+            var svg1 = d3.select("#graphDiv").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            //kbn
+            svg1.append("rect")
+                .attr("class", "background")
+                .attr("fill", "#e2eeee")
+                .attr("width", width)
+                .attr("height", height)
+                .on("click", up);
+
+            //kbn
+            svg1.append("button")
+                .attr("x", 2)
+                .attr("y", 300)
+                .text("Click here")
+                .style("font-size", "15px")
+                .on("click", up);
+            //kbn
+            svg1.append("g")
+                .attr("class", "x axis");
+            //kbn
+            svg1.append("g")
+                .attr("class", "y axis")
+                .append("line")
+                .attr("y1", "100%")
+
+
+            d3.json("/currenttrendsget-data", function (error, root) {
+                //if (error) throw error;
+
+                partition.nodes(root);
+                x.domain([0, root.value]).nice();
+                down(root, 0);
+            });
+
+            function down(d, i) {
+                if (!d.children || this.__transition__) return;
+                var end = duration + d.children.length * delay;
+
+                // Mark any currently-displayed bars as exiting.
+                //kbn
+                var exit = svg1.selectAll(".enter")
+                    .attr("class", "exit");
+
+                // Entering nodes immediately obscure the clicked-on bar, so hide it.
+                exit.selectAll("rect").filter(function (p) { return p === d; })
+                    .style("fill-opacity", 1e-6);
+
+                // Enter the new bars for the clicked-on data.
+                // Per above, entering bars are immediately visible.
+                var enter = bar(d)
+                    .attr("transform", stack(i))
+                    .style("opacity", 1)
+                    .style("font-size", "15px");
+
+                // Have the text fade-in, even though the bars are visible.
+                // Color the bars as parents; they will fade to children if appropriate.
+                enter.select("text").style("fill-opacity", 1e-6);
+                enter.select("rect").style("fill", color(true));
+
+                // Update the x-scale domain.
+                x.domain([0, d3.max(d.children, function (d) { return d.value; })]).nice();
+
+                // Update the x-axis.
+                //kbn
+                svg1.selectAll(".x.axis").transition()
+                    .duration(duration)
+                    .style("font-size", "15px")
+                    .call(xAxis);
+
+                // Transition entering bars to their new position.
+                var enterTransition = enter.transition()
+                    .duration(duration)
+                    .delay(function (d, i) { return i * delay; })
+                    .attr("transform", function (d, i) { return "translate(0," + barHeight * i * 1.2 + ")"; });
+
+                // Transition entering text.
+                enterTransition.select("text")
+                    .style("fill-opacity", 1)
+                    .style("font-size", "15px");
+
+                // Transition entering rects to the new x-scale.
+                enterTransition.select("rect")
+                    .attr("width", function (d) { return x(d.value); })
+                    .style("fill", function (d) { return color(!!d.children); });
+
+
+                // Transition exiting bars to fade out.
+                var exitTransition = exit.transition()
+                    .duration(duration)
+                    .style("opacity", 1e-6)
+                    .remove();
+
+                // Transition exiting bars to the new x-scale.
+                exitTransition.selectAll("rect")
+                    .attr("width", function (d) { return x(d.value); });
+
+                // Rebind the current node to the background.
+                //kbn
+                svg1.select(".background")
+                    .datum(d)
+                    .transition()
+                    .duration(end);
+
+                d.index = i;
+            }
+
+            function up(d) {
+                if (!d.parent || this.__transition__) return;
+                var end = duration + d.children.length * delay;
+
+                // Mark any currently-displayed bars as exiting.
+                //kbn
+                var exit = svg1.selectAll(".enter")
+                    .attr("class", "exit");
+
+                // Enter the new bars for the clicked-on data's parent.
+                var enter = bar(d.parent)
+                    .attr("transform", function (d, i) { return "translate(0," + barHeight * i * 1.2 + ")"; })
+                    .style("opacity", 1e-6);
+
+                // Color the bars as appropriate.
+                // Exiting nodes will obscure the parent bar, so hide it.
+                enter.select("rect")
+                    .style("fill", function (d) { return color(!!d.children); })
+                    .filter(function (p) { return p === d; })
+                    .style("fill-opacity", 1e-6);
+
+                // Update the x-scale domain.
+                x.domain([0, d3.max(d.parent.children, function (d) { return d.value; })]).nice();
+
+                // Update the x-axis.
+                //kbn
+                svg1.selectAll(".x.axis").transition()
+                    .duration(duration)
+                    .style("font-size", "15px")
+                    .call(xAxis);
+
+                // Transition entering bars to fade in over the full duration.
+                var enterTransition = enter.transition()
+                    .duration(end)
+                    .style("opacity", 1);
+
+                // Transition entering rects to the new x-scale.
+                // When the entering parent rect is done, make it visible!
+                enterTransition.select("rect")
+                    .attr("width", function (d) { return x(d.value); })
+                    .each("end", function (p) { if (p === d) d3.select(this).style("fill-opacity", null); });
+
+                // Transition exiting bars to the parent's position.
+                var exitTransition = exit.selectAll("g").transition()
+                    .duration(duration)
+                    .delay(function (d, i) { return i * delay; })
+                    .attr("transform", stack(d.index));
+
+                // Transition exiting text to fade out.
+                exitTransition.select("text")
+                    .style("fill-opacity", 1e-6)
+                    .style("font-size", "15px");
+
+                // Transition exiting rects to the new scale and fade to parent color.
+                exitTransition.select("rect")
+                    .attr("width", function (d) { return x(d.value); })
+                    .style("fill", color(true));
+
+                // Remove exiting nodes when the last child has finished transitioning.
+                exit.transition()
+                    .duration(end)
+                    .remove();
+
+                // Rebind the current parent to the background.
+                //kbn
+                svg1.select(".background")
+                    .datum(d.parent)
+                    .transition()
+                    .duration(end);
+            }
+
+            // Creates a set of bars for the given data node, at the specified index.
+            function bar(d) {
+                //kbn
+                var bar = svg1.insert("g", ".y.axis")
+                    .attr("class", "enter")
+                    .attr("transform", "translate(0,5)")
+                    .selectAll("g")
+                    .data(d.children)
+                    .style("font-size", "15px")
+                    .enter().append("g")
+                    .style("cursor", function (d) { return !d.children ? null : "pointer"; })
+                    .on("click", down);
+
+                bar.append("text")
+                    .attr("x", -6)
+                    .attr("y", barHeight / 2)
+                    .attr("dy", ".35em")
+                    .style("text-anchor", "end")
+                    .style("font-size", "15px")
+                    .text(function (d) { return d.name; });
+
+                bar.append("rect")
+                    .attr("width", function (d) { return x(d.value); })
+                    .attr("height", barHeight)
+                    .style("font-size", "15px");
+
+                return bar;
+            }
+
+            // A stateful closure for stacking bars horizontally.
+            function stack(i) {
+                var x0 = 0;
+                return function (d) {
+                    var tx = "translate(" + x0 + "," + barHeight * i * 1.2 + ")";
+                    x0 += x(d.value);
+                    return tx;
+                };
+            }
+        })()</script>
+</body>
+</html>

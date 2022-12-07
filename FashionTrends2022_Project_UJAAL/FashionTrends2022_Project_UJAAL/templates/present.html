@@ -26,12 +26,20 @@
             <div class="header_bottom">
                 <nav>
                     <ul id="nav">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Subscription</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Contact us</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('subscription') }}">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
                         <li><a href="{{ url_for('past') }}">Past Trend Analysis</a></li>
                         <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li id="dropdown">
+                            <a href="">Current Trends</a>
+                            <ul>
+                                <li><a href="currenttrends?tshirts">T-shirts</a></li>
+                                <li><a href="currenttrends?dresses">Dresses</a></li>
+                                <!--<li><a href="currenttrends?footwear">Footwear</a></li>-->
+                            </ul>
+                        </li>
                         <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
                     </ul>
                 </nav>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Subscription Page</title>
+
+    <!--CSS files references-->
+    <link href="../static/content/font.css" rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../static/content/tooltipster.css" />
+    <link href="../static/content/pgwslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/content/font-awesome.min.css">
+    <link href="../static/content/style.css" rel="stylesheet" media="screen">
+    <link href="../static/content/responsive.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <section id="header_area">
+        <div class="wrapper header">
+            <div class="clearfix header_top">
+                <div class="clearfix logo floatleft">
+                    <a href=""><h1><span>FASHION</span> SPY</h1></a>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <nav>
+                    <ul id="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="">Subscription</a></li>
+                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+                        {% if session['username'] %}
+                        <li><a href="{{ url_for('present') }}">Present Trend Analysis</a></li>
+                        <li><a href="{{ url_for('past') }}">Past Trend Analysis</a></li>
+                        <li><a href="{{ url_for('future') }}">Future Trend Analysis</a></li>
+                        <li id="dropdown">
+                            <a href="">Current Trends</a>
+                            <ul>
+                                <li><a href="currenttrends?tshirts">T-shirts</a></li>
+                                <li><a href="currenttrends?dresses">Dresses</a></li>
+                                <!--<li><a href="currenttrends?footwear">Footwear</a></li>-->
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('logout') }}">LOGOUT</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section id="content_area">
+        <div class="clearfix wrapper">
+            <div class="clearfix floatleft">
+                <div class="clearfix content">
+                    <div class="content_title"><h2>Below are the Available Subscriptions:</h2></div>
+
+                    <div class="clearfix single_content">
+                        <div class="clearfix post_detail">
+                            <div class="clearfix post_excerpt">
+                                <h3>Subscription PRA:</h3>
+                                <p>
+                                    PRESENT Fashion Analysis Subscription is a free and default subscription for the members of our application.
+                                    <br /><br />
+                                    This subscription would give insights into the Fashion Trends during the current time span of 1-5 years.
+                                    <br /><br />
+                                    * Present Fashion Trends Analysis based on reviews, rating, number of rating and number of reviews.<br />
+                                    * Present Fashion Trends Analysis according to gender and seasons (summer, winter, spring, and fall).<br />
+                                    * Present Fashion Trends Analysis according to age categories i.e., adult, teen, baby, old people.<br />
+                                    * Analyze the market trends and buying habits of customers.<br />
+                                    * Analyze the trends in design details, colors, fabrics, and trims.<br />
+                                    * Present Geographical map UI for fashion trends.<br />
+                                </p>
+                                <br /><br />
+                                <h3>Subscription PAA:</h3>
+                                <p>
+                                    PAST Fashion Analysis Subscription is a paid subscription for the members of our application.
+                                    <br /><br />
+                                    This subscription would give insights into the Fashion Trends in the past decade.
+                                    <br /><br />
+                                    * Past Fashion Trends Analysis would help the user to filter products based on age, festivals, seasons, gender, and colors.<br />
+                                    * Past Fashion Trends Analysis predict latest fashion trends using social media and would help fashion brands to effectively predict and produce based on the current demand.<br />
+                                    * Past Fashion Trends Analysis determine the trending colors based on the data available from Instagram via python crawlers.<br />
+                                    * Analyze and display fashion trending attributes such as mini length, high waist, tight fit and so on using the dataset.<br />
+                                    * Determine and display the effect of various festivals on the fashion trend by performing analysis on the available dataset.<br />
+                                    * Analyze and display how trends lines are affected by climate change by performing analysis on the available dataset..<br />
+                                    * Analyze and display the level of popularity of certain colors like red, green, blue, and so on over the period of time by performing analysis on the available dataset.<br />
+                                    <br />
+                                    MONTHLY PLAN: $10.99<br />
+                                    YEARLY PLAN: $100.00
+                                </p>
+                                <br /><br />
+                                <h3>Subscription FTA:</h3>
+                                <h4>[UPCOMING SOON!!]</h4>
+                                <p>
+                                    FUTURE Fashion Analysis Subscription is a paid subscription for the members of our application.
+                                    <br /><br />
+                                    This subscription would predict insights into the Fashion Trends in the upcoming decade.
+                                    <br /><br />
+                                    <u>1. LONG-TERM TREND FORECAST:</u>
+                                    <br /><br />
+                                    * Future Fashion Trends Analysis would predict trends of apparel, lowers, and footwear by analyzing changes in demographics based on culture, traditional beliefs, and weather.<br />
+                                    * Future Fashion Trends Analysis would predict trends of apparel, lowers, and footwear by analyzing changes in lifestyle factors like price, color demands, sales, material of fabric over years.<br />
+                                    * Future Fashion Trends Analysis would predict trends by analyzing changes in the way clothes are manufactured (hand-made, ecological machines, embroidered, printing), and sold (in-house, fashion shows, online) over years.<br />
+                                    <br /><br />
+                                    <u>2. SHORT-TERM TREND FORECAST:</u>
+                                    <br /><br />
+                                    * Would forecast changes according to color (seasonal colors), style (western/ traditional), event influence (festivals/wedding/concerts/ office), and cost (raw material price/complete manufacturing price).
+                                    <br /><br />
+                                    <u>3. BOTTOM-UP FORECAST:</u>
+                                    <br /><br />
+                                    * Trends shall be predicted by analyzing influencers' styles (Instagram/YouTube influencer feeds), street style and blogs (Recommendations & Suggestions by famous blogs like “Atlantic-Pacific” & “Hello Fashion”).
+                                    <br /><br />
+                                    <u>4. TOP-BOTTOM FORECAST:</u>
+                                    <br /><br />
+                                    * Trends shall be predicted by research at fashion shows (top products at each show with audience rating) and fashion magazines feedbacks like Vogue fashion statistics.
+                                    <br /><br />
+                                    MONTHLY PLAN: $15.99<br />
+                                    YEARLY PLAN: $149.00
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer_bottom_area">
+        <div class="clearfix wrapper footer_bottom">
+            <div class="clearfix copyright floatleft">
+                {% block content %}{% endblock %}
+                <p> Copyright &copy; {{ year }} - My Flask Application</p>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../static/scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/jquery.tooltipster.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.tooltip').tooltipster();
+        });
+    </script>
+
+    <script type="text/javascript" src="../static/scripts/selectnav.min.js"></script>
+    <script type="text/javascript">
+        selectnav('nav', {
+            label: '-Navigation-',
+            nested: true,
+            indent: '-'
+        });
+    </script>
+</body>
+</html>
