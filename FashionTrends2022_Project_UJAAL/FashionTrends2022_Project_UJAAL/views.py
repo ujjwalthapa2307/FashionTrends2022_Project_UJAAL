@@ -37,27 +37,31 @@ except Exception as e:
 else:
     cursor = connection.cursor()
 
-# Registeration
-@app.route('/register',methods=["GET","POST"])
+# Registration
+@app.route('/register', methods=["GET","POST"])
 def register():
     if request.method=="POST":
         name=request.form.get("name")
         email=request.form.get("email")
         password=request.form.get("password")
         #secure_password=sha256_crypt.encrypt(str(password))
-
-        if password == "":
-            get_flashed_message("password did not match","danger")
+        try:
+            if password == "":
+                get_flashed_message("password did not match","danger")
+                return redirect(url_for('register'))
+            else:
+                try:
+                    connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
+                    connection.commit()                    
+                    return redirect(url_for('login'))
+                except:
+                    return redirect(url_for('register'))
+        except:
             return redirect(url_for('register'))
 
-        else:
-            connection.execute("INSERT INTO User_login(Email,Password,name) VALUES('"+email+"','"+password+"','"+name+"')")
-            connection.commit()
-            #get_flashed_message("registration succesfull","success")
-            return redirect(url_for('login'))
-    
-    else:
-        return render_template('register.html')
+    return render_template('register.html')
+
+        
 
 # Login
 @app.route('/login',methods=['GET','POST'])
